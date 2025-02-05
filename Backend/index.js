@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import allowedOrigin from './config/allowedOrigin.js';
 import authRoutes from './routes/auth.js'
+import chiefRoutes from './routes/chief.js'
+import generalRoutes from './routes/general.js'
 import verifyToken from "./middleware/authMiddleware.js";
 
 const app = express();
@@ -24,10 +26,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/auth-check", verifyToken, (req, res) => {
-  res.status(200).json({ isAuthenticated: true, _id:req._id,username:req.username,email:req.email });
+  res.status(200).json({ isAuthenticated: true, user:req.user });
 });
 
 app.use('/auth', authRoutes);
+app.use('/chief-warden', verifyToken, chiefRoutes);
+app.use('/general', verifyToken, generalRoutes);
 
 mongoose
   .connect( process.env.MONGO_URL, {

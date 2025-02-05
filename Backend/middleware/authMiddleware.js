@@ -32,10 +32,12 @@ const verifyToken = async (req, res, next) => {
             sameSite: 'none',
             secure: true,
           });
-
+          req.user = user;
           req._id = user._id;
           req.username = user.username;
           req.email = user.email;
+          req.role = user.role;
+          req.hostel = user.hostel;
           next();
         } catch (refreshErr) {
           return res.status(401).json({ msg: "Unauthorized" });
@@ -44,9 +46,12 @@ const verifyToken = async (req, res, next) => {
         return res.status(401).json({ msg: "Unauthorized" });
       }
     } else {
+      req.user = decoded;
       req._id = decoded._id;
       req.username = decoded.username;
       req.email = decoded.email;
+      req.role = decoded.role;
+      req.hostel = decoded.hostel;
       next();
     }
   });

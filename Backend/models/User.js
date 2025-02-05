@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import jwt from "jsonwebtoken";
-
 dotenv.config();
 
 const UserSchema = new mongoose.Schema(
@@ -29,9 +28,13 @@ const UserSchema = new mongoose.Schema(
         passwordResetToken:{
             type:String,
         },
+        hostel:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Hostel"
+        },
         role:{
             type:String,
-            enum:["student","accountant","warden","admin"],
+            enum:["student","accountant","chiefWarden"],
             default:"student",
         },
     },
@@ -43,7 +46,9 @@ UserSchema.methods.generateAccessToken = function(){
         {
             _id: this._id,
             email: this.email,
-            username: this.username
+            username: this.username,
+            hostel: this.hostel,
+            role: this.role
         },
         process.env.ACCESS_TOKEN_SECRET,
         {

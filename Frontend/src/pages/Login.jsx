@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import APIRoutes from '../utils/APIRoutes';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { ToastContainer } from 'react-toastify';
 
 const Login = () => {
 
@@ -110,7 +111,6 @@ const Login = () => {
       <div className="w-1/2 bg-white flex items-center justify-center p-10">
         <img src={home} alt="Dashboard Preview" className="max-w-full h-auto" />
       </div>
-      
       {/* Right Side - Login Form */}
       <div className="w-1/2 bg-[#c5e6fb] flex flex-col justify-center items-center p-10">
         <div className="flex items-center mb-8">

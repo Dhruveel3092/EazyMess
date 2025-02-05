@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { OAuth2Client } from "google-auth-library";
 import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
+import Hostel from "../models/Hostel.js";
 
 dotenv.config();
 
@@ -25,6 +26,15 @@ const generateAccessAndRefreshTokens = async(_id) =>{
   }
 }
 
+const generateUniqueCode = (length = 7) => {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+};
+
 const register = async (req, res, next) => {
 
     const { username, email, password } = req.body;
@@ -37,7 +47,7 @@ const register = async (req, res, next) => {
     const user = await User.create({ 
       username, 
       email, 
-      password:hashedPassword 
+      password:hashedPassword
     });
 
     const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
@@ -58,7 +68,65 @@ const register = async (req, res, next) => {
         }
       );
 
-    return res.status(201).json({user, success:true, message:"User created successfully."});
+    return res.status(201).json({success:true, message:"User created successfully."});
+  };
+
+  const chiefWardenRegister = async (req, res, next) => {
+
+    const { username, email, password, hostelName } = req.body;
+    const emailCheck = await User.findOne({ email });
+
+    if(emailCheck)
+        return res.status(409).json({success:false, message:"Email already exists."});
+   
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await User.create({ 
+      username, 
+      email, 
+      password:hashedPassword,
+      hostelName,
+      role:"chiefWarden"
+    });
+
+    let hostelCode;
+    let codeExists = true;
+
+    while (codeExists) {
+      hostelCode = generateUniqueCode();
+      const existingHostel = await Hostel.findOne({ hostelCode });
+      if (!existingHostel) {
+        codeExists = false;
+      }
+    }
+
+    const hostel = await Hostel.create({
+      hostelName,
+      chiefWarden: user._id,
+      hostelCode,
+    });
+
+    user.hostel = hostel._id;
+    await user.save();
+
+    const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
+    res.cookie("accessToken", accessToken,
+      {
+        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true,
+      }
+    )
+      .cookie("refreshToken", refreshToken,
+        {
+          expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+          httpOnly: true,
+          sameSite: 'none',
+          secure: true,
+        }
+      );
+
+    return res.status(201).json({success:true, message:"User created successfully."});
   };
 
 const login = async (req, res, next) => {
@@ -90,7 +158,7 @@ const login = async (req, res, next) => {
       secure: true,
     });
 
-    return res.status(200).json({ user, success: true, message: "Login successful." });
+    return res.status(200).json({success: true, message: "Login successful." });
   } catch (error) {
     next(error);
   }
@@ -134,7 +202,7 @@ const login = async (req, res, next) => {
               secure: true,
             }
           );
-        return res.status(201).json({user, success:true, message:"Google login successful."});
+        return res.status(201).json({success:true, message:"Google login successful."});
       } else {
         return res.status(400).json({ success: false, message: "Google login failed." });
       }
@@ -206,6 +274,7 @@ const resetPassword = async (req, res, next) => {
     next(error);
   }
 };
+
   
 export {
     register,
@@ -213,4 +282,5 @@ export {
     googleLogin,
     forgotPassword,
     resetPassword,
+    chiefWardenRegister,
 };

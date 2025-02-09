@@ -53,7 +53,7 @@ const register = async (req, res, next) => {
     const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
     res.cookie("accessToken", accessToken,
       {
-        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+        expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000),
         httpOnly: true,
         sameSite: 'none',
         secure: true,
@@ -61,7 +61,7 @@ const register = async (req, res, next) => {
     )
       .cookie("refreshToken", refreshToken,
         {
-          expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+          expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000),
           httpOnly: true,
           sameSite: 'none',
           secure: true,
@@ -111,7 +111,7 @@ const register = async (req, res, next) => {
     const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
     res.cookie("accessToken", accessToken,
       {
-        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+        expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000),
         httpOnly: true,
         sameSite: 'none',
         secure: true,
@@ -119,7 +119,7 @@ const register = async (req, res, next) => {
     )
       .cookie("refreshToken", refreshToken,
         {
-          expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+          expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000),
           httpOnly: true,
           sameSite: 'none',
           secure: true,
@@ -145,14 +145,14 @@ const login = async (req, res, next) => {
     const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(user._id);
 
     res.cookie("accessToken", accessToken, {
-      expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000),
       httpOnly: true,
       sameSite: 'none',
       secure: true,
     });
 
     res.cookie("refreshToken", refreshToken, {
-      expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+      expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000),
       httpOnly: true,
       sameSite: 'none',
       secure: true,
@@ -188,7 +188,7 @@ const login = async (req, res, next) => {
   
         res.cookie("accessToken", accessToken,
           {
-            expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+            expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000),
             httpOnly: true,
             sameSite: 'none',
             secure: true,
@@ -196,7 +196,7 @@ const login = async (req, res, next) => {
         )
           .cookie("refreshToken", refreshToken,
             {
-              expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+              expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000),
               httpOnly: true,
               sameSite: 'none',
               secure: true,

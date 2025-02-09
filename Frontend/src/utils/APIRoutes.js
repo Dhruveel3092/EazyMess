@@ -13,6 +13,8 @@ const APIRoutes = {
   changeMenu: `${host}/chief-warden/change-menu`,
   addAccountant: `${host}/chief-warden/add-accountant`,
   messMenu: `${host}/general/mess-menu`,
+  getSignature: `${host}/chief-warden/get-signature`,
+  uploadNotice: `${host}/chief-warden/upload-notice`,
 };
 
 export default APIRoutes;

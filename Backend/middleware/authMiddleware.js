@@ -7,11 +7,10 @@ dotenv.config();
 const verifyToken = async (req, res, next) => {
   const accessToken = req.cookies.accessToken;
   const refreshToken = req.cookies.refreshToken;
-
+  
   if (!accessToken) {
-    return res.status(403).json({ msg: "No access token provided" });
+    return res.status(403).json({isAuthenticated:false, msg: "No access token provided check that withCredential:true is included or not" });
   }
-
   jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, async (err, decoded) => {
     if (err) {
       if (err.name === "TokenExpiredError" && refreshToken) {
@@ -21,13 +20,13 @@ const verifyToken = async (req, res, next) => {
           const user = await User.findById(decodedRefresh._id);
 
           if (!user || user.refreshToken !== refreshToken) {
-            return res.status(401).json({ msg: "Unauthorized" });
+            return res.status(401).json({isAuthenticated:false, msg: "Unauthorized" });
           }
           
           const newAccessToken = user.generateAccessToken();
           
           res.cookie("accessToken", newAccessToken, {
-            expires: new Date(Date.now() + 24 * 60 * 60 * 1000), 
+            expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000), 
             httpOnly: true,
             sameSite: 'none',
             secure: true,
@@ -40,10 +39,10 @@ const verifyToken = async (req, res, next) => {
           req.hostel = user.hostel;
           next();
         } catch (refreshErr) {
-          return res.status(401).json({ msg: "Unauthorized" });
+          return res.status(401).json({isAuthenticated:false, msg: "Unauthorized" });
         }
       } else {
-        return res.status(401).json({ msg: "Unauthorized" });
+        return res.status(401).json({isAuthenticated:false, msg: "Unauthorized" });
       }
     } else {
       req.user = decoded;

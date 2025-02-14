@@ -4,6 +4,7 @@ import Notice from "../models/Notice.js";
 import Complaint from "../models/Complaint.js";
 import Rating from "../models/Rating.js";
 import Hostel from "../models/Hostel.js";
+import User from "../models/User.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -11,36 +12,36 @@ dotenv.config();
   const messMenu = async (req, res, next) => {  
     try {
       const menu = await Menu.find({ hostel: req.user.hostel });
-      res.status(200).json(menu);
+      return res.status(200).json(menu);
     } catch (error) {
-      res.status(500).json({ message: "Server error", error });
+      return res.status(500).json({ message: "Server error", error });
     }
   }
 
   const getNotices = async (req, res, next) => {
     try {
       const notices = await Notice.find({ hostel: req.user.hostel }).sort({ createdAt: -1 });
-      res.status(200).json(notices);
+      return res.status(200).json(notices);
     } catch (error) {
-      res.status(500).json({ message: "Server error", error });
+      return res.status(500).json({ message: "Server error", error });
     }
   }
 
   const getPendingComplaints = async (req, res, next) => {
     try {
       const complaints = await Complaint.find({ hostel: req.user.hostel, status: "pending" }).sort({ createdAt: -1 });
-      res.status(200).json(complaints);
+      return res.status(200).json(complaints);
     } catch (error) {
-      res.status(500).json({ message: "Server error", error });
+      return res.status(500).json({ message: "Server error", error });
     }
   }
 
   const getResolvedComplaints = async (req, res, next) => {
     try {
       const complaints = await Complaint.find({ hostel: req.user.hostel, status: "resolved" }).sort({ createdAt: -1 });
-      res.status(200).json(complaints);
+      return res.status(200).json(complaints);
     } catch (error) {
-      res.status(500).json({ message: "Server error", error });
+      return res.status(500).json({ message: "Server error", error });
     }
   }
 
@@ -50,7 +51,7 @@ dotenv.config();
       const nowIST = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
       // Compute the start of the day in IST
       nowIST.setHours(0, 0, 0, 0);
-      console.log("Start of IST day:", nowIST);
+      // console.log("Start of IST day:", nowIST);
   
       const hostelId = new mongoose.Types.ObjectId(req.user.hostel);
       const ratingsAggregation = await Rating.aggregate([
@@ -87,10 +88,10 @@ dotenv.config();
           });
         }
       }
-      console.log({ averageRating, totalRatings, userHasRated, rating: ratingObject });
-      res.status(200).json({ averageRating, totalRatings, userHasRated, rating: ratingObject });
+      // console.log({ averageRating, totalRatings, userHasRated, rating: ratingObject });
+      return res.status(200).json({ averageRating, totalRatings, userHasRated, rating: ratingObject });
     } catch (error) {
-      res.status(500).json({ message: "Server error", error });
+      return res.status(500).json({ message: "Server error", error });
     }
   };
 
@@ -142,10 +143,10 @@ dotenv.config();
         totalRatings: entry.totalRatings
       }));
   
-      res.status(200).json(weeklyData);
+      return res.status(200).json(weeklyData);
     } catch (error) {
       console.error("Error fetching weekly ratings:", error);
-      res.status(500).json({ message: "Server error", error });
+      return res.status(500).json({ message: "Server error", error });
     }
   };
 
@@ -155,11 +156,36 @@ dotenv.config();
       if (!hostel) {
         return res.status(404).json({ success: false, message: "Hostel not found" });
       }
-      res.status(200).json({ success: true, hostelName: hostel.hostelName });
+      return res.status(200).json({ success: true, hostelName: hostel.hostelName });
     } catch (error) {
-      res.status(500).json({ message: "Server error", error });
+      return res.status(500).json({ message: "Server error", error });
     }
   };
+
+  const uploadProfileImage = async (req, res, next) => {
+    try{
+      const { profilePicture } = req.body;
+      const user = await User.findById(req.user._id);
+      if (!user) {
+        return res.status(404).json({ success: false, message: "User not found" });
+      }
+      user.profilePicture = profilePicture;
+      await user.save();
+
+      const accessToken = user.generateAccessToken();
+      
+      res.cookie("accessToken", accessToken, {
+          expires: new Date(Date.now() + 12 * 30 * 24 * 60 * 60 * 1000),
+          httpOnly: true,
+          sameSite: 'none',
+          secure: true,
+      });
+
+      return res.status(200).json({ success: true, message: "Profile image uploaded successfully" });
+    }catch(error){
+      return res.status(500).json({ message: "Server error", error });
+    }
+  }
 
 export {
     messMenu,
@@ -169,4 +195,5 @@ export {
     getAverageRating,
     getWeeklyRatings,
     getHostelName,
+    uploadProfileImage,
 };

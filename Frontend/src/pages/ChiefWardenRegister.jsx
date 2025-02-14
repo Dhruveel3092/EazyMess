@@ -21,7 +21,7 @@ const ChiefWardenRegister = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(APIRoutes.authCheck, { withCredentials: true });
-        console.log(data);
+        // console.log(data);
         if(data.isAuthenticated)
         {
           navigate("/dashboard");
@@ -70,7 +70,7 @@ const ChiefWardenRegister = () => {
     if(handleValidation())
     {
       try {
-        console.log("hello");
+        // console.log("hello");
         const { username, email, password, hostelName } = values;
         const { data } = await axios.post(APIRoutes.chiefWardenRegister,
              { username, email, password, hostelName },

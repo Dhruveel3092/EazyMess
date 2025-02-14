@@ -73,7 +73,7 @@ const addAccountant = async (req, res, next) => {
       const signature = cloudinary.utils.api_sign_request({
         timestamp,
       },process.env.CLOUDINARY_API_SECRETE);
-      console.log("Timestamp:", timestamp);
+      // console.log("Timestamp:", timestamp);
       return res.json({timestamp,signature});
     } catch (error) {
       console.error(error);

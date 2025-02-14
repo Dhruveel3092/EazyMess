@@ -21,7 +21,7 @@ const Register = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(APIRoutes.authCheck, { withCredentials: true });
-        console.log(data);
+        // console.log(data);
         if(data.isAuthenticated)
         {
           navigate("/dashboard");

@@ -24,6 +24,7 @@ const APIRoutes = {
   getAverageRating: `${host}/general/get-average-rating`,
   getWeeklyRatings: `${host}/general/get-weekly-ratings`,
   getHostelName: `${host}/general/get-hostel-name`,
+  uploadProfileImage: `${host}/general/upload-profile-image`,
   
   joinHostel: `${host}/student/join-hostel`,
   raiseComplaint: `${host}/student/raise-complaint`,

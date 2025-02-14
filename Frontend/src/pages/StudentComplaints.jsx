@@ -116,7 +116,7 @@ const StudentComplaints = () => {
                 setPendingComplaints((prev) =>
                     prev.filter((complaint) => complaint._id !== updatedComplaint._id)
                 );
-                console.log("Complaint resolved successfully");
+                // console.log("Complaint resolved successfully");
                 showToast(message, "success");
             } else {
                 showToast(message, "error");

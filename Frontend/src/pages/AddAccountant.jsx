@@ -20,9 +20,9 @@ function AddAccountant() {
         const fetchData = async () => {
             try {
                 const { data } = await axios.get(APIRoutes.authCheck, { withCredentials: true });
-                console.log(data);
+                // console.log(data);
                 if (data.isAuthenticated && data.user.role === 'chiefWarden') {
-                    console.log(data.user);
+                    // console.log(data.user);
                     setUser(data.user);
                 }
                 else{

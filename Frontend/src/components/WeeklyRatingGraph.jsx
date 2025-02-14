@@ -10,7 +10,7 @@ const WeeklyRatingGraph = () => {
       try {
         const { data } = await axios.get(APIRoutes.getWeeklyRatings, { withCredentials: true });
         setWeeklyRatings(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error("Error fetching weekly ratings:", error);
       }

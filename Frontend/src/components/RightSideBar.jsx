@@ -54,7 +54,7 @@ function RightSideBar() {
         const { data } = await axios.get(APIRoutes.getAverageRating, { withCredentials: true });
         setAverageRating(data.averageRating);
         setTotalRatings(data.totalRatings);
-        console.log(data);
+        // console.log(data);
         if (role === "student" && data.userHasRated) {
           setUserHasRated(true);
           // Assuming rating object has a "rating" property that stores the value

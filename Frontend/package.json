@@ -22,6 +22,7 @@
     "@mui/x-charts": "^7.24.0",
     "@react-oauth/google": "^0.12.1",
     "@zegocloud/zego-uikit-prebuilt": "^2.14.1",
+    "antd": "^5.24.0",
     "appwrite": "^16.1.0",
     "axios": "^1.7.9",
     "chart.js": "^4.4.7",

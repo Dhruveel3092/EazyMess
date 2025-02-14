@@ -87,7 +87,7 @@ function AddNotice() {
             // console.log(imgUrl);
             const { title, description } = values;
             const { data } = await axios.post(APIRoutes.uploadNotice, { title, description, file: fileUrl }, { withCredentials: true });
-            console.log(data);
+            // console.log(data);
             if (data.success) {
                 showToast(data.message, "success");
             }

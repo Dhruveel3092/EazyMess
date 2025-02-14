@@ -1,5 +1,5 @@
 import express from 'express';
-import { messMenu, getNotices, getPendingComplaints, getResolvedComplaints, getAverageRating, getWeeklyRatings, getHostelName } from '../controllers/general.js';
+import { messMenu, getNotices, getPendingComplaints, getResolvedComplaints, getAverageRating, getWeeklyRatings, getHostelName, uploadProfileImage } from '../controllers/general.js';
 
 const router = express.Router();
 
@@ -10,5 +10,6 @@ router.get("/get-resolved-complaints", getResolvedComplaints);
 router.get("/get-average-rating", getAverageRating);
 router.get("/get-weekly-ratings", getWeeklyRatings);
 router.get("/get-hostel-name", getHostelName);
+router.post("/upload-profile-image", uploadProfileImage);
 
 export default router;

@@ -5,6 +5,7 @@ import Menu from "../models/Menu.js";
 import Notice from "../models/Notice.js";
 import { v2 as cloudinary } from "cloudinary";
 import Complaint from "../models/Complaint.js";
+import Hostel from "../models/Hostel.js";
 
 dotenv.config();
 
@@ -114,10 +115,22 @@ const addAccountant = async (req, res, next) => {
     return res.status(200).json({success:true, message:"Complaint resolved successfully.", updatedComplaint: complaint});
   };
 
+  const getHostelNameAndCode = async (req, res) => {
+    if(req.user.role !== "chiefWarden")
+        return res.status(401).json({success:false, message:"Unauthorized Access."});
+
+    const hostel = await Hostel.findById(req.user.hostel);
+    if(!hostel)
+        return res.status(404).json({success:false, message:"Hostel not found."});
+
+    return res.status(200).json({success:true, hostelName: hostel.hostelName, hostelCode: hostel.hostelCode});
+  }
+
 export {
     addAccountant,
     changeMenu,
     getSignatureForUpload,
     uploadNotice,
     resolveComplaint,
+    getHostelNameAndCode,
 };

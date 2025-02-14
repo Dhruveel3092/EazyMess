@@ -16,6 +16,7 @@ const APIRoutes = {
   getSignature: `${host}/chief-warden/get-signature`,
   uploadNotice: `${host}/chief-warden/upload-notice`,
   resolveComplaint: `${host}/chief-warden/resolve-complaint`,
+  getHostelNameAndCode: `${host}/chief-warden/get-hostel-name-and-code`,
   
   messMenu: `${host}/general/mess-menu`,
   getNotices: `${host}/general/get-notices`,

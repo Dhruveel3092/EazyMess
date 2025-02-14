@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ChiefWardenLeftSidebar from '../components/ChiefWardenLeftSidebar.jsx'
+import StudentLeftSideBar from '../components/StudentLeftSideBar.jsx'
 import RightSideBar from '../components/RightSideBar.jsx'
 import axios from 'axios'
 import APIRoutes from '../utils/APIRoutes.js'
@@ -7,7 +7,7 @@ import { showToast } from '../utils/toast.js'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
-function AddNotice() {
+function RaiseComplaint() {
     const navigate = useNavigate();
     const [user, setUser] = useState({});
     const [values, setValues] = useState({
@@ -21,7 +21,7 @@ function AddNotice() {
             try {
                 const { data } = await axios.get(APIRoutes.authCheck, { withCredentials: true });
                 // console.log(data);
-                if (data.isAuthenticated && (data.user.role === 'chiefWarden' || data.user.role === 'accountant')) {
+                if (data.isAuthenticated && (data.user.role === 'student')) {
                     // console.log(data.user);
                     setUser(data.user);
                 }
@@ -78,15 +78,15 @@ function AddNotice() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if(!values.title || !values.file){
-                showToast("Title and file fields are mandetory", "error");
+            if(!values.title){
+                showToast("Title fields is mandetory", "error");
                 return;
             }
             const { timestamp:imgTimestamp, signature : imgSignature} = await getSignatureForUpload();
             const fileUrl = await uploadFile('image',imgTimestamp,imgSignature);
             // console.log(imgUrl);
             const { title, description } = values;
-            const { data } = await axios.post(APIRoutes.uploadNotice, { title, description, file: fileUrl }, { withCredentials: true });
+            const { data } = await axios.post(APIRoutes.raiseComplaint, { title, description, file: fileUrl }, { withCredentials: true });
             console.log(data);
             if (data.success) {
                 showToast(data.message, "success");
@@ -110,13 +110,13 @@ function AddNotice() {
     return (
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
             {/* Left Sidebar */}
-            <ChiefWardenLeftSidebar />
+            <StudentLeftSideBar />
 
             {/* Main Content */}
             <main className="flex-1 flex justify-center items-center text-xl font-semibold text-gray-700">
                 <div className="w-3/4 flex justify-center items-center">
                     <div className="bg-white p-6 rounded-lg shadow-lg w-[450px]">
-                        <h2 className="text-2xl font-bold mb-4 text-center">Add Notice</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-center">Raise Complaint</h2>
                         <form onSubmit={handleSubmit}>
                             <input
                                 type="text"
@@ -140,16 +140,17 @@ function AddNotice() {
                                 onChange={handleChange}
                                 className="w-full p-2 border rounded mb-3"
                             />
-                            <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded">Post Notice</button>
+                            <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded">Post Complaint</button>
                         </form>
                     </div>
                 </div>
             </main>
 
             {/* Right Sidebar */}
+            <ToastContainer />
             <RightSideBar />
         </div>
     )
 }
 
-export default AddNotice
+export default RaiseComplaint

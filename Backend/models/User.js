@@ -17,6 +17,10 @@ const UserSchema = new mongoose.Schema(
             max:50,
             unique:true
         },
+        profilePicture:{
+            type:String,
+            default:"https://res.cloudinary.com/drxcjij97/image/upload/v1707052827/zupx5ylgkrtq33lzzkma.png"
+        },
         password:{
             type:String,
             default: "$2b$10$M62ybY2nJLxqQM0noVK49O9/eJm/8xIdE5o3pxGHGT1niVsmhj8ay",
@@ -48,7 +52,8 @@ UserSchema.methods.generateAccessToken = function(){
             email: this.email,
             username: this.username,
             hostel: this.hostel,
-            role: this.role
+            role: this.role,
+            profilePicture: this.profilePicture
         },
         process.env.ACCESS_TOKEN_SECRET,
         {

@@ -5,6 +5,7 @@ import { OAuth2Client } from "google-auth-library";
 import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
 import Hostel from "../models/Hostel.js";
+import Menu from "../models/Menu.js";
 
 dotenv.config();
 
@@ -107,6 +108,20 @@ const register = async (req, res, next) => {
 
     user.hostel = hostel._id;
     await user.save();
+
+    const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    for (const day of days) {
+      await Menu.create({
+        day,
+        meals: {
+          breakfast: null,
+          lunch: null,
+          snacks: null,
+          dinner: null,
+        },
+        hostel: hostel._id,
+      });
+    }
 
     const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
     res.cookie("accessToken", accessToken,

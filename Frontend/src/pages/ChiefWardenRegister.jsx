@@ -28,7 +28,6 @@ const ChiefWardenRegister = () => {
         }
     } catch (error) {
       console.log(error)
-      navigate("/login");
     }
     };
     fetchData();

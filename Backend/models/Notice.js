@@ -5,12 +5,17 @@ const noticeSchema = new mongoose.Schema({
             type: String,
             required: true,
         },
-        desctiption: {
+        description: {
             type: String,
         },
         file: {
             type: String,
-        }
+        },
+        hostel: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Hostel",
+            required: true,
+        },
     },
     {
         timestamps: true,

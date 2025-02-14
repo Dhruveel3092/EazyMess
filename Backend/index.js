@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import allowedOrigin from './config/allowedOrigin.js';
 import authRoutes from './routes/auth.js'
 import chiefRoutes from './routes/chief.js'
+import studentRoutes from './routes/student.js'
 import generalRoutes from './routes/general.js'
 import verifyToken from "./middleware/authMiddleware.js";
 
@@ -31,6 +32,7 @@ app.use("/auth-check", verifyToken, (req, res) => {
 
 app.use('/auth', authRoutes);
 app.use('/chief-warden', verifyToken, chiefRoutes);
+app.use('/student', verifyToken, studentRoutes);
 app.use('/general', verifyToken, generalRoutes);
 
 mongoose

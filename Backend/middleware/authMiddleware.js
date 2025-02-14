@@ -37,6 +37,7 @@ const verifyToken = async (req, res, next) => {
           req.email = user.email;
           req.role = user.role;
           req.hostel = user.hostel;
+          req.profilePicture = user.profilePicture;
           next();
         } catch (refreshErr) {
           return res.status(401).json({isAuthenticated:false, msg: "Unauthorized" });
@@ -51,6 +52,7 @@ const verifyToken = async (req, res, next) => {
       req.email = decoded.email;
       req.role = decoded.role;
       req.hostel = decoded.hostel;
+      req.profilePicture = decoded.profilePicture;
       next();
     }
   });

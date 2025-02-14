@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import APIRoutes from '../utils/APIRoutes';
-import LeftSidebar from './LeftSidebar';
-import RightSideBar from './RightSideBar';
+import ChiefWardenLeftSidebar from '../components/ChiefWardenLeftSidebar';
+import RightSideBar from '../components/RightSideBar';
 
 const ChiefWardenDashboard = () => {
 
@@ -31,7 +31,7 @@ const ChiefWardenDashboard = () => {
   return (
     <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
       {/* Left Sidebar */}
-      <LeftSidebar />
+      <ChiefWardenLeftSidebar />
 
       {/* Main Content */}
       <main className="flex-1 flex justify-center items-center text-xl font-semibold text-gray-700">

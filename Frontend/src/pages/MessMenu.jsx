@@ -5,8 +5,11 @@ import APIRoutes from "../utils/APIRoutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEdit } from "react-icons/fa";
-import LeftSidebar from "./LeftSidebar";
-import RightSideBar from "./RightSideBar";
+import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar";
+import AccountantLeftSidebar from "../components/AccountantLeftSidebar";
+import StudentLeftSideBar from "../components/StudentLeftSideBar";
+import RightSideBar from "../components/RightSideBar";
+
 
 const MessMenu = () => {
     const navigate = useNavigate();
@@ -88,7 +91,13 @@ const MessMenu = () => {
     return (
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
             {/* Left Sidebar */}
-            <LeftSidebar />
+            {role === "chiefWarden" ? (
+                <ChiefWardenLeftSidebar />
+            ) : role === "accountant" ? (
+                <AccountantLeftSidebar />
+            ) : (
+                <StudentLeftSideBar />
+            )}
 
             {/* Main Content */}
             <main className="flex-1 flex justify-center items-center text-xl font-semibold text-gray-700">

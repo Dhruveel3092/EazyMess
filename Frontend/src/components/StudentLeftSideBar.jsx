@@ -3,9 +3,9 @@ import axios from 'axios';
 import APIRoutes from '../utils/APIRoutes';
 import { showToast } from '../utils/toast';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaComment, FaCheck, FaUtensils, FaBell, FaUserPlus, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaComment, FaCheck, FaUtensils, FaExclamationTriangle, FaSignOutAlt } from 'react-icons/fa';
 
-const LeftSidebar = () => {
+const StudentLeftSideBar = () => {
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -25,7 +25,7 @@ const LeftSidebar = () => {
       {/* Branding */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-700">
-          Chief <span className="text-red-500">Warden</span> Dashboard
+            <span className="text-red-500">Student</span> Dashboard
         </h1>
       </div>
 
@@ -38,34 +38,28 @@ const LeftSidebar = () => {
           <FaUser className="mr-2" /> Dashboard
         </Link>
         <Link
-          to="/student-complains"
+          to="/raise-complaint"
           className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
         >
-          <FaComment className="mr-2" /> Student Complains
+          <FaExclamationTriangle className="mr-2" /> Raise Complaint
         </Link>
         <Link
-          to="/resolved-complains"
+          to="/student-complaints"
           className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
         >
-          <FaCheck className="mr-2" /> Resolved Complains
+          <FaComment className="mr-2" /> Student Complaints
+        </Link>
+        <Link
+          to="/resolved-complaints"
+          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
+        >
+          <FaCheck className="mr-2" /> Resolved Complaints
         </Link>
         <Link
           to="/mess-menu"
           className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
         >
           <FaUtensils className="mr-2" /> Mess Menu
-        </Link>
-        <Link
-          to="/add-notice"
-          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
-        >
-          <FaBell className="mr-2" /> Add Notice
-        </Link>
-        <Link
-          to="/add-accountant"
-          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
-        >
-          <FaUserPlus className="mr-2" /> Add Accountant
         </Link>
         <button
           onClick={handleLogout}
@@ -83,4 +77,4 @@ const LeftSidebar = () => {
   );
 };
 
-export default LeftSidebar;
+export default StudentLeftSideBar;

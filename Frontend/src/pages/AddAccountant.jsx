@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import LeftSidebar from './LeftSidebar'
-import RightSideBar from './RightSideBar'
+import ChiefWardenLeftSidebar from '../components/ChiefWardenLeftSidebar.jsx'
+import RightSideBar from '../components/RightSideBar.jsx'
 import axios from 'axios'
 import APIRoutes from '../utils/APIRoutes.js'
 import {showToast} from '../utils/toast.js'
@@ -99,10 +99,14 @@ function AddAccountant() {
         setValues({ ...values, [event.target.name]: event.target.value });
     }
 
+    if(!user){
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
             {/* Left Sidebar */}
-            <LeftSidebar />
+            <ChiefWardenLeftSidebar />
 
             {/* Main Content */}
             <main className="flex-1 flex justify-center items-center text-xl font-semibold text-gray-700">

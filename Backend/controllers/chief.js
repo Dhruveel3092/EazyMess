@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import Menu from "../models/Menu.js";
 import Notice from "../models/Notice.js";
 import { v2 as cloudinary } from "cloudinary";
+import Complaint from "../models/Complaint.js";
 
 dotenv.config();
 
@@ -38,8 +39,8 @@ const addAccountant = async (req, res, next) => {
   };
 
   const changeMenu = async (req, res) => {
-
-    if(req.user.role !== "chief-warden" || req.user.role !== "accountant")
+    console.log(req);
+    if(!(req.user.role === "chiefWarden" || req.user.role === "accountant"))
         return res.status(401).json({success:false, message:"Unauthorized Access."});
 
     const { day } = req.params;
@@ -47,7 +48,10 @@ const addAccountant = async (req, res, next) => {
   
     try {
       const updatedMenu = await Menu.findOneAndUpdate(
-        { day },
+        { 
+          day,
+          hostel: req.user.hostel
+        },
         { $set: { [`meals.${mealType}`]: value } },
         { new: true }
       );
@@ -82,7 +86,8 @@ const addAccountant = async (req, res, next) => {
       if(!(req.user.role === "chiefWarden" || req.user.role === "accountant"))
         return res.status(401).json({success:false, message:"Unauthorized Access."});
       const { title, description, file } = req.body;
-      const notice = await Notice.create({ title, description, file });
+      const hostel = req.user.hostel;
+      const notice = await Notice.create({ title, description, file, hostel });
       return res.json( {success:true, message:"Notice added successfully."} );
     } catch (error) {
       console.error(error);
@@ -90,9 +95,29 @@ const addAccountant = async (req, res, next) => {
     }
   };
 
+  const resolveComplaint = async (req, res) => {
+    if(req.user.role !== "chiefWarden")
+        return res.status(401).json({success:false, message:"Unauthorized Access."});
+
+    const { complaintId } = req.body;
+    const complaint = await Complaint.findById(complaintId);
+
+    if(!complaint)
+        return res.status(404).json({success:false, message:"Complaint not found."});
+
+    if(complaint.status !== "pending")
+        return res.status(400).json({success:false, message:"Complaint is not pending."});
+
+    complaint.status = "resolved";
+    await complaint.save();
+
+    return res.status(200).json({success:true, message:"Complaint resolved successfully.", updatedComplaint: complaint});
+  };
+
 export {
     addAccountant,
     changeMenu,
     getSignatureForUpload,
     uploadNotice,
+    resolveComplaint,
 };

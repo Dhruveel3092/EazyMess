@@ -15,7 +15,7 @@ const Dashboard = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(APIRoutes.authCheck, { withCredentials: true });
-        console.log(response);
+        // console.log(response);
         if (response.data.isAuthenticated) {
           setRole(response.data.user.role);
         } else {

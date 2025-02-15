@@ -75,6 +75,7 @@ const Login = () => {
         }
       } catch (error) { 
         console.log(error);
+        showToast(error.response.data.message, "error");
       }
     }
   }
@@ -163,6 +164,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+    <ToastContainer />
     </div>
     </GoogleOAuthProvider>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ChiefWardenLeftSidebar from '../components/ChiefWardenLeftSidebar.jsx'
+import AccountantLeftSidebar from '../components/AccountantLeftSidebar.jsx'
 import RightSideBar from '../components/RightSideBar.jsx'
 import axios from 'axios'
 import APIRoutes from '../utils/APIRoutes.js'
@@ -110,7 +111,11 @@ function AddNotice() {
     return (
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
             {/* Left Sidebar */}
-            <ChiefWardenLeftSidebar />
+            {
+             user.role === "chiefWarden" 
+             ? <ChiefWardenLeftSidebar />
+             : <AccountantLeftSidebar />
+            }
 
             {/* Main Content */}
             <main className="flex-1 flex justify-center items-center text-xl font-semibold text-gray-700">
@@ -148,6 +153,7 @@ function AddNotice() {
 
             {/* Right Sidebar */}
             <RightSideBar />
+            <ToastContainer />
         </div>
     )
 }

@@ -39,10 +39,10 @@ const Register = () => {
                 </div>
                 <div className="flex flex-col items-center space-y-4">
                     <h2 className="text-xl font-semibold">Select Your Role</h2>
-                    <button onClick={() => navigate("/register/chief-warden-register")} className="w-64 px-4 py-2 bg-black text-white rounded-lg">
+                    <button onClick={() => navigate("/register/chief-warden-register")} className="w-64 px-4 py-2 bg-black text-white rounded-lg hover:bg-[#0a138b]">
                         Chief Warden
                     </button>
-                    <button onClick={() => navigate("/register/student-register")} className="w-64 px-4 py-2 bg-black text-white rounded-lg">
+                    <button onClick={() => navigate("/register/student-register")} className="w-64 px-4 py-2 bg-black text-white rounded-lg hover:bg-[#0a138b]">
                         Student
                     </button>
                 </div>

@@ -186,6 +186,7 @@ const StudentRegister = () => {
         </div>
       </div>
     </div>
+    <ToastContainer/>
     </GoogleOAuthProvider>
   );
 };

@@ -5,6 +5,7 @@ import axios from 'axios'
 import APIRoutes from '../utils/APIRoutes.js'
 import {showToast} from '../utils/toast.js'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 
 function AddAccountant() {
     const navigate = useNavigate(); 
@@ -154,6 +155,7 @@ function AddAccountant() {
 
             {/* Right Sidebar */}
             <RightSideBar />
+            <ToastContainer/>
         </div>
     )
 }

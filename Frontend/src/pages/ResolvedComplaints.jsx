@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar";
 import AccountantLeftSidebar from "../components/AccountantLeftSidebar";
-import StudentLeftSideBar from "../components/StudentLeftSideBar";
+import StudentLeftSidebar from "../components/StudentLeftSidebar";
 import RightSideBar from "../components/RightSideBar";
 import { showToast } from "../utils/toast";
 
@@ -54,7 +54,7 @@ const ResolvedComplaints = () => {
             ) : role === "accountant" ? (
                 <AccountantLeftSidebar />
             ) : (
-                <StudentLeftSideBar />
+                <StudentLeftSidebar />
             )}
 
             {/* Main Content */}

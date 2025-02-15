@@ -11,12 +11,13 @@ const APIRoutes = {
   chiefWardenRegister: `${host}/auth/chief-warden-register`,
   logout: `${host}/auth/logout`,
 
-  changeMenu: `${host}/chief-warden/change-menu`,
   addAccountant: `${host}/chief-warden/add-accountant`,
   getSignature: `${host}/chief-warden/get-signature`,
-  uploadNotice: `${host}/chief-warden/upload-notice`,
   resolveComplaint: `${host}/chief-warden/resolve-complaint`,
-  getHostelNameAndCode: `${host}/chief-warden/get-hostel-name-and-code`,
+  
+  uploadNotice: `${host}/chief-warden-accountant/upload-notice`,
+  changeMenu: `${host}/chief-warden-accountant/change-menu`,
+  getHostelNameAndCode: `${host}/chief-warden-accountant/get-hostel-name-and-code`,
   
   messMenu: `${host}/general/mess-menu`,
   getNotices: `${host}/general/get-notices`,

@@ -25,7 +25,7 @@ const AccountantLeftSideBar = () => {
       {/* Branding */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-700">
-            <span className="text-red-500">Student</span> Dashboard
+          <span className="text-red-500">Accountant</span> Dashboard
         </h1>
       </div>
 
@@ -55,6 +55,12 @@ const AccountantLeftSideBar = () => {
         >
           <FaUtensils className="mr-2" /> Mess Menu
         </Link>
+        <Link
+          to="/add-notice"
+          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
+        >
+          <FaBell className="mr-2" /> Add Notice
+        </Link>
         <button
           onClick={handleLogout}
           className="w-full text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
@@ -62,11 +68,6 @@ const AccountantLeftSideBar = () => {
           <FaSignOutAlt className="mr-2" /> Logout
         </button>
       </nav>
-
-      {/* Feedback Button */}
-      <button className="mt-auto bg-red-500 text-white px-4 py-2 rounded-md">
-        Feedback
-      </button>
     </aside>
   );
 };

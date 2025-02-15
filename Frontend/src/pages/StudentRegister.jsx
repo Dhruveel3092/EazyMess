@@ -5,16 +5,16 @@ import { useNavigate, Link } from "react-router-dom";
 import { showToast } from '../utils/toast';
 import APIRoutes from '../utils/APIRoutes';
 import axios from 'axios';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { ToastContainer } from 'react-toastify';
 
-const ChiefWardenRegister = () => {
+const StudentRegister = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
-    hostelName: "",
   });
 
   useEffect(() => {
@@ -47,8 +47,7 @@ const ChiefWardenRegister = () => {
         "error"
       );
       return false;
-    }
-    else if (password.length < 8) {
+    } else if (password.length < 8) {
       showToast(
         "Password should be equal or greater than 8 characters.",
         "error"
@@ -60,7 +59,7 @@ const ChiefWardenRegister = () => {
         "error"
       );
       return false;
-    } 
+    }
 
     return true;
   };
@@ -70,10 +69,9 @@ const ChiefWardenRegister = () => {
     if(handleValidation())
     {
       try {
-        // console.log("hello");
-        const { username, email, password, hostelName } = values;
-        const { data } = await axios.post(APIRoutes.chiefWardenRegister,
-             { username, email, password, hostelName },
+        const { username, email, password } = values;
+        const { data } = await axios.post(APIRoutes.register,
+             { username, email, password },
              { withCredentials: true }
             );
 
@@ -96,7 +94,29 @@ const ChiefWardenRegister = () => {
     setValues({...values, [event.target.name]: event.target.value});
   }
 
+  const handleGoogleSuccess = async (response) => {
+    try {
+      const { data } = await axios.post(APIRoutes.googleLogin, 
+        { tokenId: response.credential },
+        { withCredentials: true }
+      );
+      if (data.success) {
+        showToast(data.message, "success");
+        navigate("/dashboard");
+      } else {
+        showToast(data.message, "error");
+      }
+    } catch (error) {
+      showToast("Google login failed.", "error");
+    }
+  };
+
+  const handleGoogleFailure = () => {
+    showToast("Google login failed.", "error");
+  };
+
   return (
+    <GoogleOAuthProvider clientId={ import.meta.env.VITE_GOOGLE_CLIENT_ID }>
     <div className="flex h-screen">
       {/* Left Side - Image Section */}
       <div className="w-1/2 bg-white flex items-center justify-center px-3">
@@ -129,13 +149,6 @@ const ChiefWardenRegister = () => {
               className="w-full p-4 mb-4 border rounded-lg bg-white text-black" 
               />
             <input 
-              type="text" 
-              placeholder="Hostel Name" 
-              name="hostelName"
-              onChange={(e) => handleChange(e)}
-              className="w-full p-4 mb-4 border rounded-lg bg-white text-black pr-16" 
-              />
-            <input 
               type="password" 
               placeholder="Password" 
               name="password"
@@ -149,7 +162,7 @@ const ChiefWardenRegister = () => {
               onChange={(e) => handleChange(e)}
               className="w-full p-4 border rounded-lg bg-white text-black pr-16" 
               />
-            <button className="w-full bg-black text-white p-4 rounded-lg hover:bg-[#0a138b] mt-4">CREATE CHIEFWARDEN ACCOUNT</button>
+            <button className="w-full bg-black text-white p-4 rounded-lg hover:bg-[#0a138b] mt-4">CREATE STUDENT ACCOUNT</button>
           </form>
 
             <div className="my-4 flex items-center">
@@ -158,15 +171,23 @@ const ChiefWardenRegister = () => {
               <hr className="flex-grow border-black" />
             </div>
 
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={handleGoogleFailure}
+              useOneTap
+              style={{ height: '50px' }}
+              className="w-full bg-black text-white p-4 rounded-lg flex items-center justify-center hover:bg-[#0a138b]"
+            />
+
             <p className="mt-4 text-center text-black text-sm">
             ALREADY HAVE AN ACCOUNT ? <Link to="/login" className="text-[#0a138b] font-bold">LOGIN</Link>
             </p>
 
         </div>
       </div>
-      <ToastContainer />
     </div>
+    </GoogleOAuthProvider>
   );
 };
 
-export default ChiefWardenRegister;
+export default StudentRegister;

@@ -74,11 +74,6 @@ const ChiefWardenLeftSidebar = () => {
           <FaSignOutAlt className="mr-2" /> Logout
         </button>
       </nav>
-
-      {/* Feedback Button */}
-      <button className="mt-auto bg-red-500 text-white px-4 py-2 rounded-md">
-        Feedback
-      </button>
     </aside>
   );
 };

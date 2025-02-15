@@ -108,14 +108,14 @@ const Login = () => {
     <GoogleOAuthProvider clientId={ import.meta.env.VITE_GOOGLE_CLIENT_ID }>
     <div className="flex h-screen">
       {/* Left Side - Image Section */}
-      <div className="w-1/2 bg-white flex items-center justify-center p-10">
-        <img src={home} alt="Dashboard Preview" className="max-w-full h-auto" />
+      <div className="w-1/2 bg-white flex items-center justify-center px-3">
+        <img src={home} alt="Dashboard Preview" className="max-w-full h-700" />
       </div>
       {/* Right Side - Login Form */}
       <div className="w-1/2 bg-[#c5e6fb] flex flex-col justify-center items-center p-10">
         <div className="flex items-center mb-8">
-          <img src={Logo} alt="Logo" className="h-16 mr-4" />
-          <h1 className="text-3xl font-bold text-black">MESS-WEB-APP</h1>
+          <img src={Logo} alt="Logo" className="h-12 mr-4" />
+          <h1 className="text-4xl font-bold text-black">EazyMess</h1>
         </div>
         
         <div className="w-full max-w-xs">

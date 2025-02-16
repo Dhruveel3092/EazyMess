@@ -10,6 +10,7 @@ const addExpense = async (req, res) => {
     try {
         const data = req.body;
         data.totalCost = data.price * data.quantity;
+        data.hostel = req.user.hostel;
         // console.log(data);
         const expense = await Expense.create(data);
         return res.status(201).json({success:true, message:"Expense added successfully."});

@@ -15,6 +15,7 @@ import AddNotice from "./pages/AddNotice";
 import StudentComplaints from "./pages/StudentComplaints";
 import ResolvedComplaints from "./pages/ResolvedComplaints";
 import AddExpense from "./pages/AddExpenses";
+import DailyExpenses from "./pages/DailyExpense";
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
           <Route path='/student-complaints' element={<StudentComplaints />} />
           <Route path='/resolved-complaints' element={<ResolvedComplaints />} />
           <Route path='/add-expenses' element={<AddExpense />} />
+          <Route path='/daily-expenses' element={<DailyExpenses />} />
           <Route path='*' element={<Dashboard />} />
         </Routes>
         <ToastContainer/>

@@ -43,6 +43,11 @@ const ExpenseSchema = new mongoose.Schema({
     enum: ["fruitsAndVegetables", "spices", "dairyProducts", "maintainance", "grocery", "Other"],
     default: "Other",
   },
+  hostel: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Hostel',
+    required: true,
+  },
 }, {
   timestamps: true,
 });

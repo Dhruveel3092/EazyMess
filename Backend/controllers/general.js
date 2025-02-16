@@ -5,6 +5,7 @@ import Complaint from "../models/Complaint.js";
 import Rating from "../models/Rating.js";
 import Hostel from "../models/Hostel.js";
 import User from "../models/User.js";
+import Expense from "../models/Expense.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -187,6 +188,21 @@ dotenv.config();
     }
   }
 
+  const dailyExpense = async (req, res, next) => {
+    try {
+      const hostel = await Hostel.findById(req.user.hostel);
+      if (!hostel) {
+        return res.status(404).json({ success: false, message: "Hostel not found" });
+      }
+      const date = req.query.date;
+      const expenses = await Expense.find({ hostel: req.user.hostel, date });
+      console.log(expenses);
+      return res.status(200).json({ success: true, expenses });
+    } catch (error) {
+      return res.status(500).json({ message: "Server error", error });
+    }
+  }
+
 export {
     messMenu,
     getNotices,
@@ -196,4 +212,5 @@ export {
     getWeeklyRatings,
     getHostelName,
     uploadProfileImage,
+    dailyExpense,
 };

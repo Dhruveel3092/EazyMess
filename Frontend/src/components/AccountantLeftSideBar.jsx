@@ -3,7 +3,7 @@ import axios from 'axios';
 import APIRoutes from '../utils/APIRoutes';
 import { showToast } from '../utils/toast';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaComment, FaCheck, FaUtensils, FaBell, FaUserPlus, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaComment, FaCheck, FaUtensils, FaBell, FaSignOutAlt, FaMoneyBillAlt, FaWallet } from 'react-icons/fa';
 
 const AccountantLeftSideBar = () => {
   const navigate = useNavigate();
@@ -60,6 +60,18 @@ const AccountantLeftSideBar = () => {
           className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
         >
           <FaBell className="mr-2" /> Add Notice
+        </Link>
+        <Link
+          to="/add-expenses"
+          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
+        >
+          <FaMoneyBillAlt className="mr-2" /> Add Expenses
+        </Link>
+        <Link
+          to="/daily-expenses"
+          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
+        >
+          <FaWallet className="mr-2" /> Daily Expenses
         </Link>
         <button
           onClick={handleLogout}

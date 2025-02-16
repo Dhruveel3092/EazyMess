@@ -8,6 +8,7 @@ import chiefRoutes from './routes/chief.js'
 import studentRoutes from './routes/student.js'
 import generalRoutes from './routes/general.js'
 import chiefAccountantRoutes from './routes/chiefAccountant.js'
+import accountantRoutes from "./routes/accountant.js";
 import verifyToken from "./middleware/authMiddleware.js";
 
 const app = express();
@@ -35,6 +36,7 @@ app.use('/auth', authRoutes);
 app.use('/chief-warden', verifyToken, chiefRoutes);
 app.use('/chief-warden-accountant', verifyToken, chiefAccountantRoutes);
 app.use('/student', verifyToken, studentRoutes);
+app.use('/accountant', verifyToken, accountantRoutes);
 app.use('/general', verifyToken, generalRoutes);
 
 mongoose

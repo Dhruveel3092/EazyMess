@@ -18,6 +18,8 @@ const APIRoutes = {
   uploadNotice: `${host}/chief-warden-accountant/upload-notice`,
   changeMenu: `${host}/chief-warden-accountant/change-menu`,
   getHostelNameAndCode: `${host}/chief-warden-accountant/get-hostel-name-and-code`,
+
+  addExpense: `${host}/accountant/add-expense`,
   
   messMenu: `${host}/general/mess-menu`,
   getNotices: `${host}/general/get-notices`,

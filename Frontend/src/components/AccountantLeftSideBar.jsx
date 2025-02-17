@@ -5,7 +5,7 @@ import { showToast } from '../utils/toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUser, FaComment, FaCheck, FaUtensils, FaBell, FaSignOutAlt, FaMoneyBillAlt, FaWallet } from 'react-icons/fa';
 
-const AccountantLeftSideBar = () => {
+const AccountantLeftSidebar = () => {
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -90,4 +90,4 @@ const AccountantLeftSideBar = () => {
   );
 };
 
-export default AccountantLeftSideBar;
+export default AccountantLeftSidebar;

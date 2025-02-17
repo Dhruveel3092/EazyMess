@@ -1,4 +1,4 @@
-const host = "https://eazy-mess-yk6p.vercel.app";
+const host = "https://eazymess.onrender.com";
 
 const APIRoutes = {
   host,

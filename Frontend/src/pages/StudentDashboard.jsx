@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { showToast } from '../utils/toast';
 import JoinHostel from '../components/JoinHostel';
-import StudentLeftSidebar from '../components/StudentLeftSidebar';
+import StudentLeftSidebar from '../components/StudentLeftSidebar.jsx';
 import RightSideBar from '../components/RightSideBar';
 import ProfileImageModal from '../components/ProfileImageModal';
 

@@ -5,9 +5,9 @@ import APIRoutes from "../utils/APIRoutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEdit } from "react-icons/fa";
-import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar";
-import AccountantLeftSidebar from "../components/AccountantLeftSideBar";
-import StudentLeftSidebar from "../components/StudentLeftSideBar";
+import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar.jsx";
+import AccountantLeftSidebar from "../components/AccountantLeftSidebar.jsx";
+import StudentLeftSidebar from "../components/StudentLeftSidebar.jsx";
 import RightSideBar from "../components/RightSideBar";
 
 

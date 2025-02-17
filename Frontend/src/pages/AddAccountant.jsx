@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ChiefWardenLeftSidebar from '../components/ChiefWardenLeftSidebar.jsx'
-import RightSideBar from '../components/RightSideBar.jsx'
+import RightSideBar from '../components/RightSideBar'
 import axios from 'axios'
 import APIRoutes from '../utils/APIRoutes.js'
 import {showToast} from '../utils/toast.js'

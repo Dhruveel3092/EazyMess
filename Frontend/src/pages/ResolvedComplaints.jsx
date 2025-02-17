@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import APIRoutes from "../utils/APIRoutes";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar";
-import AccountantLeftSidebar from "../components/AccountantLeftSidebar";
-import StudentLeftSidebar from "../components/StudentLeftSidebar";
+import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar.jsx";
+import AccountantLeftSidebar from "../components/AccountantLeftSidebar.jsx";
+import StudentLeftSidebar from "../components/StudentLeftSidebar.jsx";
 import RightSideBar from "../components/RightSideBar";
 import { showToast } from "../utils/toast";
 

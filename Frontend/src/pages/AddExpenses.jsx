@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
-import AccountantLeftSidebar from "../components/AccountantLeftSideBar";
+import AccountantLeftSidebar from "../components/AccountantLeftSidebar.jsx";
 import RightSideBar from "../components/RightSideBar";
 import { showToast } from "../utils/toast";
 import APIRoutes from "../utils/APIRoutes";

@@ -127,6 +127,10 @@ const StudentComplaints = () => {
         }
     };
 
+    if (role === "") {
+        return <div>Loading...</div>
+    }
+
     return (
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
             {/* Left Sidebar */}

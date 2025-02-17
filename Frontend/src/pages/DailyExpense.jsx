@@ -49,11 +49,9 @@ const DailyExpenses = () => {
 
     const totalExpense = expenses.reduce((sum, expense) => sum + expense.price * expense.quantity, 0);
 
-    if (role === "") (
-        <>
-            Loading...
-        </>
-    );
+    if (role === "") {
+        return <div>Loading...</div>
+    }
 
     return (
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">

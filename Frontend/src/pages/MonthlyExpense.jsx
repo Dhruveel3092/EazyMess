@@ -62,11 +62,9 @@ const MonthlyExpense = () => {
         fetchMonthlyExpenses();
     }, [selectedMonth]);
 
-    if (role === "") (
-        <>
-            Loading...
-        </>
-    );
+    if (role === "") {
+        return <div>Loading...</div>
+    }
 
     const data = {
         labels: Object.keys(categorySummary),

@@ -1,4 +1,4 @@
-const host = "https://eazymess.onrender.com";
+const host = "https://eazymess-ovi8.onrender.com";
 
 const APIRoutes = {
   host,

@@ -4,7 +4,7 @@ import axios from 'axios';
 import APIRoutes from '../utils/APIRoutes';
 import 'react-toastify/dist/ReactToastify.css';
 import { showToast } from '../utils/toast';
-import AccountantLeftSideBar from '../components/AccountantLeftSidebar';
+import AccountantLeftSideBar from '../components/AccountantLeftSideBar';
 import RightSideBar from '../components/RightSideBar';
 import ProfileImageModal from '../components/ProfileImageModal';
 

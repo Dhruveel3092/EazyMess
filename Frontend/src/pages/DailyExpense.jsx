@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar";
-import AccountantLeftSidebar from "../components/AccountantLeftSidebar";
+import AccountantLeftSidebar from "../components/AccountantLeftSideBar";
 import StudentLeftSidebar from "../components/StudentLeftSidebar";
 import RightSideBar from "../components/RightSideBar";
 

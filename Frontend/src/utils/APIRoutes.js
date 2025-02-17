@@ -1,4 +1,4 @@
-const host = "http://localhost:8080";
+const host = "https://eazy-mess-yk6p.vercel.app";
 
 const APIRoutes = {
   host,

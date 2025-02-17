@@ -30,6 +30,7 @@ const APIRoutes = {
   getHostelName: `${host}/general/get-hostel-name`,
   uploadProfileImage: `${host}/general/upload-profile-image`,
   dailyExpense: `${host}/general/daily-expense`,
+  monthlyExpense: `${host}/general/monthly-expense`,
   
   joinHostel: `${host}/student/join-hostel`,
   raiseComplaint: `${host}/student/raise-complaint`,

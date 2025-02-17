@@ -113,7 +113,7 @@ const Login = () => {
         <img src={home} alt="Dashboard Preview" className="max-w-full h-700" />
       </div>
       {/* Right Side - Login Form */}
-      <div className="w-1/2 bg-[#c5e6fb] flex flex-col justify-center items-center p-10">
+      <div className="w-1/2 bg-gradient-to-br from-pink-100 to-orange-100 flex flex-col justify-center items-center p-10">
         <div className="flex items-center mb-8">
           <img src={Logo} alt="Logo" className="h-12 mr-4" />
           <h1 className="text-4xl font-bold text-black">EazyMess</h1>
@@ -138,9 +138,9 @@ const Login = () => {
               className="w-full p-4 mb-4 border rounded-lg bg-white text-black" 
             />
             <span className="absolute right-20 top-1/2 transform -translate-y-1/2 text-gray-400">|</span>
-            <Link to="/forgot-password" className="absolute right-4 top-1/2 transform -translate-y-1/2 text-sm text-gray-600 hover:text-[#0a138b]">Forgot?</Link>
+            <Link to="/forgot-password" className="absolute right-4 top-1/2 transform -translate-y-1/2 text-sm text-[#FF6B6B] hover:text-[#E63946]">Forgot?</Link>
           </div>
-          <button className="w-full bg-black text-white p-4 rounded-lg hover:bg-[#0a138b] mt-4">LOG IN</button>
+          <button className="w-full bg-[#FF6B6B] text-white p-4 rounded-lg hover:bg-[#E63946] mt-4">LOG IN</button>
         </form>
 
           <div className="my-4 flex items-center">
@@ -160,7 +160,7 @@ const Login = () => {
             />
 
           <p className="mt-4 text-center text-black text-sm">
-            DON'T HAVE AN ACCOUNT ? <Link to="/register" className="text-[#0a138b] font-bold">CREATE ONE.</Link>
+            DON'T HAVE AN ACCOUNT ? <Link to="/register" className="text-[#FF6B6B] font-bold">CREATE ONE.</Link>
           </p>
         </div>
       </div>

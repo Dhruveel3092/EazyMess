@@ -196,12 +196,35 @@ dotenv.config();
       }
       const date = req.query.date;
       const expenses = await Expense.find({ hostel: req.user.hostel, date });
-      console.log(expenses);
+      // console.log(expenses);
       return res.status(200).json({ success: true, expenses });
     } catch (error) {
       return res.status(500).json({ message: "Server error", error });
     }
   }
+
+  const monthlyExpense = async (req, res, next) => {
+    try {
+      const { month } = req.query;
+  
+      if (!month) {
+        return res.status(400).json({ message: "Month is required in YYYY-MM format" });
+      }
+  
+      const startDate = new Date(`${month}-01T00:00:00.000Z`);
+      const endDate = new Date(startDate);
+      endDate.setMonth(endDate.getMonth() + 1);
+  
+      const expenses = await Expense.find({
+        date: { $gte: startDate, $lt: endDate },
+      });
+  
+      return res.status(200).json(expenses);
+    } catch (error) {
+      console.error("Error fetching expenses:", error);
+      res.status(500).json({ message: "Server error" });
+    }
+  };
 
 export {
     messMenu,
@@ -213,4 +236,5 @@ export {
     getHostelName,
     uploadProfileImage,
     dailyExpense,
+    monthlyExpense,
 };

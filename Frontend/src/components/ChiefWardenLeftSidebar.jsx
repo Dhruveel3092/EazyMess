@@ -3,7 +3,7 @@ import axios from 'axios';
 import APIRoutes from '../utils/APIRoutes';
 import { showToast } from '../utils/toast';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaComment, FaCheck, FaUtensils, FaBell, FaUserPlus, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaComment, FaCheck, FaUtensils, FaBell, FaUserPlus, FaSignOutAlt, FaWallet } from 'react-icons/fa';
 
 const ChiefWardenLeftSidebar = () => {
   const navigate = useNavigate();
@@ -66,6 +66,18 @@ const ChiefWardenLeftSidebar = () => {
           className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
         >
           <FaUserPlus className="mr-2" /> Add Accountant
+        </Link>
+        <Link
+          to="/daily-expenses"
+          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
+        >
+          <FaWallet className="mr-2" /> Daily Expenses
+        </Link>
+        <Link
+          to="/monthly-expenses"
+          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
+        >
+          <FaWallet className="mr-2" /> Monthly Expenses
         </Link>
         <button
           onClick={handleLogout}

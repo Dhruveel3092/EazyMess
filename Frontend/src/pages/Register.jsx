@@ -31,7 +31,7 @@ const Register = () => {
             </div>
 
             {/* Right Side - Login Form */}
-            <div className="w-1/2 bg-[#c5e6fb] flex flex-col justify-center items-center p-10">
+            <div className="w-1/2 bg-gradient-to-br from-pink-100 to-orange-100 flex flex-col justify-center items-center p-10">
 
                 <div className="flex items-center mb-8">
                     <img src={Logo} alt="Logo" className="h-12 mr-4" />
@@ -39,15 +39,15 @@ const Register = () => {
                 </div>
                 <div className="flex flex-col items-center space-y-4">
                     <h2 className="text-xl font-semibold">Select Your Role</h2>
-                    <button onClick={() => navigate("/register/chief-warden-register")} className="w-64 px-4 py-2 bg-black text-white rounded-lg hover:bg-[#0a138b]">
+                    <button onClick={() => navigate("/register/chief-warden-register")} className="w-64 px-4 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#E63946]">
                         Chief Warden
                     </button>
-                    <button onClick={() => navigate("/register/student-register")} className="w-64 px-4 py-2 bg-black text-white rounded-lg hover:bg-[#0a138b]">
+                    <button onClick={() => navigate("/register/student-register")} className="w-64 px-4 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-[#E63946]">
                         Student
                     </button>
                 </div>
                 <p className="mt-4 text-center text-black text-sm">
-                    ALREADY HAVE AN ACCOUNT ? <Link to="/login" className="text-[#0a138b] font-bold">LOGIN</Link>
+                    ALREADY HAVE AN ACCOUNT ? <Link to="/login" className="text-[#FF6B6B] font-bold">LOGIN</Link>
                 </p>
             </div>
         </div>

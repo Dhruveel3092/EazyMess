@@ -24,11 +24,6 @@ const ExpenseSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  buyerName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
   shopName: {
     type: String,
     required: true,
@@ -40,7 +35,7 @@ const ExpenseSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["fruitsAndVegetables", "spices", "dairyProducts", "maintainance", "grocery", "Other"],
+    enum: ["fruitsAndVegetables", "spices", "dairyProducts", "maintainance", "grocery", "other"],
     default: "Other",
   },
   hostel: {

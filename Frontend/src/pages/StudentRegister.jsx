@@ -124,7 +124,7 @@ const StudentRegister = () => {
       </div>
       
       {/* Right Side - Login Form */}
-      <div className="w-1/2 bg-[#c5e6fb] flex flex-col justify-center items-center p-10">
+      <div className="w-1/2 bg-gradient-to-br from-pink-100 to-orange-100 flex flex-col justify-center items-center p-10">
       
         <div className="flex items-center mb-8">
           <img src={Logo} alt="Logo" className="h-12 mr-4" />
@@ -162,7 +162,7 @@ const StudentRegister = () => {
               onChange={(e) => handleChange(e)}
               className="w-full p-4 border rounded-lg bg-white text-black pr-16" 
               />
-            <button className="w-full bg-black text-white p-4 rounded-lg hover:bg-[#0a138b] mt-4">CREATE STUDENT ACCOUNT</button>
+            <button className="w-full bg-[#FF6B6B] text-white p-4 rounded-lg hover:bg-[#E63946] mt-4">CREATE STUDENT ACCOUNT</button>
           </form>
 
             <div className="my-4 flex items-center">
@@ -180,7 +180,7 @@ const StudentRegister = () => {
             />
 
             <p className="mt-4 text-center text-black text-sm">
-            ALREADY HAVE AN ACCOUNT ? <Link to="/login" className="text-[#0a138b] font-bold">LOGIN</Link>
+            ALREADY HAVE AN ACCOUNT ? <Link to="/login" className="text-[#FF6B6B] font-bold">LOGIN</Link>
             </p>
 
         </div>

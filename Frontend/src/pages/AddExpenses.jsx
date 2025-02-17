@@ -14,7 +14,6 @@ const AddExpense = () => {
         itemName: "",
         price: "",
         quantity: "",
-        buyerName: "",
         shopName: "",
         category: "fruitsAndVegetables",
         date: new Date().toISOString().split("T")[0],
@@ -52,7 +51,7 @@ const AddExpense = () => {
     const totalCost = (formData.price * formData.quantity) || 0;
 
     const handleValidation = () => {
-        if (!formData.itemName || !formData.price || !formData.quantity || !formData.buyerName || !formData.shopName) {
+        if (!formData.itemName || !formData.price || !formData.quantity || !formData.shopName) {
             return false;
         }
         return true;
@@ -71,7 +70,6 @@ const AddExpense = () => {
                         itemName: "",
                         price: "",
                         quantity: "",
-                        buyerName: "",
                         shopName: "",
                         category: "fruitsAndVegetables",
                         date: new Date().toISOString().split("T")[0]
@@ -106,7 +104,6 @@ const AddExpense = () => {
                         <input type="text" name="itemName" value={formData.itemName} onChange={handleChange} placeholder="Item Name" className="w-full p-2 border rounded" />
                         <input type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price (₹)" className="w-full p-2 border rounded" />
                         <input type="number" name="quantity" value={formData.quantity} onChange={handleChange} placeholder="Quantity" className="w-full p-2 border rounded" />
-                        <input type="text" name="buyerName" value={formData.buyerName} onChange={handleChange} placeholder="Buyer Name" className="w-full p-2 border rounded" />
                         <input type="text" name="shopName" value={formData.shopName} onChange={handleChange} placeholder="Shop Name" className="w-full p-2 border rounded" />
 
                         <select name="category" value={formData.category} onChange={handleChange} className="w-full p-2 border rounded">

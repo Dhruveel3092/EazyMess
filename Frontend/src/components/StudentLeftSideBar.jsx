@@ -3,7 +3,7 @@ import axios from 'axios';
 import APIRoutes from '../utils/APIRoutes';
 import { showToast } from '../utils/toast';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUser, FaComment, FaCheck, FaUtensils, FaExclamationTriangle, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaComment, FaCheck, FaUtensils, FaExclamationTriangle, FaSignOutAlt, FaWallet } from 'react-icons/fa';
 
 const StudentLeftSideBar = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const StudentLeftSideBar = () => {
       {/* Branding */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-700">
-            <span className="text-red-500">Student</span> Dashboard
+          <span className="text-red-500">Student</span> Dashboard
         </h1>
       </div>
 
@@ -60,6 +60,18 @@ const StudentLeftSideBar = () => {
           className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
         >
           <FaUtensils className="mr-2" /> Mess Menu
+        </Link>
+        <Link
+          to="/daily-expenses"
+          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
+        >
+          <FaWallet className="mr-2" /> Daily Expenses
+        </Link>
+        <Link
+          to="/monthly-expenses"
+          className="block text-left px-4 py-2 bg-green-400 rounded-md text-white font-semibold flex items-center hover:bg-green-500"
+        >
+          <FaWallet className="mr-2" /> Monthly Expenses
         </Link>
         <button
           onClick={handleLogout}

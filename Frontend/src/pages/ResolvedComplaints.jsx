@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import APIRoutes from "../utils/APIRoutes";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar.jsx";
-import AccountantLeftSidebar from "../components/AccountantLeftSidebar.jsx";
-import StudentLeftSidebar from "../components/StudentLeftSidebar.jsx";
+import ChiefWardenLeftSideBar from "../components/ChiefWardenLeftSideBar";
+import AccountantLeftSideBar from "../components/AccountantLeftSideBar";
+import StudentLeftSideBar from "../components/StudentLeftSideBar";
 import RightSideBar from "../components/RightSideBar";
 import { showToast } from "../utils/toast";
 
@@ -50,11 +50,11 @@ const ResolvedComplaints = () => {
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
             {/* Left Sidebar */}
             {role === "chiefWarden" ? (
-                <ChiefWardenLeftSidebar />
+                <ChiefWardenLeftSideBar />
             ) : role === "accountant" ? (
-                <AccountantLeftSidebar />
+                <AccountantLeftSideBar />
             ) : (
-                <StudentLeftSidebar />
+                <StudentLeftSideBar />
             )}
 
             {/* Main Content */}

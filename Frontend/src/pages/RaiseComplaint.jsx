@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import StudentLeftSidebar from '../components/StudentLeftSidebar.jsx'
+import StudentLeftSideBar from '../components/StudentLeftSideBar'
 import RightSideBar from '../components/RightSideBar.jsx'
 import axios from 'axios'
 import APIRoutes from '../utils/APIRoutes.js'
@@ -110,7 +110,7 @@ function RaiseComplaint() {
     return (
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
             {/* Left Sidebar */}
-            <StudentLeftSidebar />
+            <StudentLeftSideBar />
 
             {/* Main Content */}
             <main className="flex-1 flex justify-center items-center text-xl font-semibold text-gray-700">

@@ -4,7 +4,7 @@ import axios from 'axios';
 import APIRoutes from '../utils/APIRoutes';
 import 'react-toastify/dist/ReactToastify.css';
 import { showToast } from '../utils/toast';
-import ChiefWardenLeftSidebar from '../components/ChiefWardenLeftSidebar';
+import ChiefWardenLeftSideBar from '../components/ChiefWardenLeftSideBar';
 import RightSideBar from '../components/RightSideBar';
 import ProfileImageModal from '../components/ProfileImageModal';
 
@@ -120,7 +120,7 @@ const ChiefWardenDashboard = () => {
         />
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
           {/* Left Sidebar */}
-          <ChiefWardenLeftSidebar />
+          <ChiefWardenLeftSideBar />
 
           {/* Main Content */}
           <main className="flex-1 flex flex-col items-center justify-center">

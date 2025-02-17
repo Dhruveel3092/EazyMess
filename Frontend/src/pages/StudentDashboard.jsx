@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { showToast } from '../utils/toast';
 import JoinHostel from '../components/JoinHostel';
-import StudentLeftSidebar from '../components/StudentLeftSidebar.jsx';
+import StudentLeftSideBar from '../components/StudentLeftSideBar';
 import RightSideBar from '../components/RightSideBar';
 import ProfileImageModal from '../components/ProfileImageModal';
 
@@ -160,7 +160,7 @@ const StudentDashboard = () => {
         />
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
           {/* Left Sidebar */}
-          <StudentLeftSidebar />
+          <StudentLeftSideBar />
 
           {/* Main Content */}
           <main className="flex-1 flex flex-col items-center justify-center">

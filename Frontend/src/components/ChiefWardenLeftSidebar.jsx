@@ -5,7 +5,7 @@ import { showToast } from '../utils/toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUser, FaComment, FaCheck, FaUtensils, FaBell, FaUserPlus, FaSignOutAlt, FaWallet } from 'react-icons/fa';
 
-const ChiefWardenLeftSidebar = () => {
+const ChiefWardenLeftSideBar = () => {
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -90,4 +90,4 @@ const ChiefWardenLeftSidebar = () => {
   );
 };
 
-export default ChiefWardenLeftSidebar;
+export default ChiefWardenLeftSideBar;

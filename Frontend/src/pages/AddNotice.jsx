@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ChiefWardenLeftSidebar from '../components/ChiefWardenLeftSidebar.jsx'
-import AccountantLeftSidebar from '../components/AccountantLeftSidebar.jsx'
+import ChiefWardenLeftSideBar from '../components/ChiefWardenLeftSideBar'
+import AccountantLeftSideBar from '../components/AccountantLeftSideBar'
 import RightSideBar from '../components/RightSideBar.jsx'
 import axios from 'axios'
 import APIRoutes from '../utils/APIRoutes.js'
@@ -113,8 +113,8 @@ function AddNotice() {
             {/* Left Sidebar */}
             {
              user.role === "chiefWarden" 
-             ? <ChiefWardenLeftSidebar />
-             : <AccountantLeftSidebar />
+             ? <ChiefWardenLeftSideBar />
+             : <AccountantLeftSideBar />
             }
 
             {/* Main Content */}

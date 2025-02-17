@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ChiefWardenLeftSidebar from '../components/ChiefWardenLeftSidebar.jsx'
+import ChiefWardenLeftSideBar from '../components/ChiefWardenLeftSideBar'
 import RightSideBar from '../components/RightSideBar'
 import axios from 'axios'
 import APIRoutes from '../utils/APIRoutes.js'
@@ -107,7 +107,7 @@ function AddAccountant() {
     return (
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
             {/* Left Sidebar */}
-            <ChiefWardenLeftSidebar />
+            <ChiefWardenLeftSideBar />
 
             {/* Main Content */}
             <main className="flex-1 flex justify-center items-center text-xl font-semibold text-gray-700">

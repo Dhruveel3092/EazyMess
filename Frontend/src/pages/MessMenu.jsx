@@ -5,9 +5,9 @@ import APIRoutes from "../utils/APIRoutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEdit } from "react-icons/fa";
-import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar.jsx";
-import AccountantLeftSidebar from "../components/AccountantLeftSidebar.jsx";
-import StudentLeftSidebar from "../components/StudentLeftSidebar.jsx";
+import ChiefWardenLeftSideBar from "../components/ChiefWardenLeftSideBar";
+import AccountantLeftSideBar from "../components/AccountantLeftSideBar";
+import StudentLeftSideBar from "../components/StudentLeftSideBar";
 import RightSideBar from "../components/RightSideBar";
 
 
@@ -92,11 +92,11 @@ const MessMenu = () => {
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
             {/* Left Sidebar */}
             {role === "chiefWarden" ? (
-                <ChiefWardenLeftSidebar />
+                <ChiefWardenLeftSideBar />
             ) : role === "accountant" ? (
-                <AccountantLeftSidebar />
+                <AccountantLeftSideBar />
             ) : (
-                <StudentLeftSidebar />
+                <StudentLeftSideBar />
             )}
 
             {/* Main Content */}

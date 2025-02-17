@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
-import AccountantLeftSidebar from "../components/AccountantLeftSidebar.jsx";
+import AccountantLeftSideBar from "../components/AccountantLeftSideBar";
 import RightSideBar from "../components/RightSideBar";
 import { showToast } from "../utils/toast";
 import APIRoutes from "../utils/APIRoutes";
@@ -94,7 +94,7 @@ const AddExpense = () => {
 
     return (
         <div className="flex h-screen bg-gradient-to-br from-pink-100 to-orange-100">
-            <AccountantLeftSidebar />
+            <AccountantLeftSideBar />
 
             {/* Main Content */}
             <main className="flex-1 flex justify-center items-center text-xl font-semibold text-gray-700">

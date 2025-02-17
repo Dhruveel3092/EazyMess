@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaEdit } from "react-icons/fa";
 import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar";
 import AccountantLeftSidebar from "../components/AccountantLeftSideBar";
-import StudentLeftSidebar from "../components/StudentLeftSidebar";
+import StudentLeftSidebar from "../components/StudentLeftSideBar";
 import RightSideBar from "../components/RightSideBar";
 
 

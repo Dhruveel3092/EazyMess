@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChiefWardenLeftSidebar from "../components/ChiefWardenLeftSidebar";
 import AccountantLeftSidebar from "../components/AccountantLeftSideBar";
-import StudentLeftSidebar from "../components/StudentLeftSidebar";
+import StudentLeftSidebar from "../components/StudentLeftSideBar";
 import RightSideBar from "../components/RightSideBar";
 import { showToast } from "../utils/toast";
 

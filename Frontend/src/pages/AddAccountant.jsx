@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ChiefWardenLeftSideBar from '../components/ChiefWardenLeftSideBar'
+import ChiefWardenLeftSideBar from '../components/ChiefWardenLeftSidebar.jsx'
 import RightSideBar from '../components/RightSideBar'
 import axios from 'axios'
 import APIRoutes from '../utils/APIRoutes.js'

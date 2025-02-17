@@ -5,7 +5,7 @@ import APIRoutes from "../utils/APIRoutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEdit } from "react-icons/fa";
-import ChiefWardenLeftSideBar from "../components/ChiefWardenLeftSideBar";
+import ChiefWardenLeftSideBar from "../components/ChiefWardenLeftSidebar";
 import AccountantLeftSideBar from "../components/AccountantLeftSideBar";
 import StudentLeftSideBar from "../components/StudentLeftSideBar";
 import RightSideBar from "../components/RightSideBar";

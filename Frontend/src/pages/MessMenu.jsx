@@ -13,7 +13,7 @@ import RightSideBar from "../components/RightSideBar";
 
 const MessMenu = () => {
     const navigate = useNavigate();
-    const [role, setRole] = useState(null);
+    const [role, setRole] = useState("");
     const [selectedDay, setSelectedDay] = useState("");
     const [menu, setMenu] = useState({});
     const [editing, setEditing] = useState(null);

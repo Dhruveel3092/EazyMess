@@ -9,7 +9,7 @@ import AccountantDashboard from './AccountantDashboard';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [role, setRole] = useState(null);
+  const [role, setRole] = useState("");
 
   useEffect(() => {
     const fetchUserData = async () => {

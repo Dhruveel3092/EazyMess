@@ -12,7 +12,7 @@ import { showToast } from "../utils/toast";
 
 const ResolvedComplaints = () => {
     const navigate = useNavigate();
-    const [role, setRole] = useState(null);
+    const [role, setRole] = useState("");
     const [resolvedComplaints, setResolvedComplaints] = useState([]);
 
     useEffect(() => {

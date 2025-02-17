@@ -7,7 +7,7 @@ import StarRating from "./StarRating"; // Import the new StarRating component
 import WeeklyRatingGraph from "./WeeklyRatingGraph";
 
 function RightSideBar() {
-  const [role, setRole] = useState(null);
+  const [role, setRole] = useState("");
   const navigate = useNavigate();
   const [notices, setNotices] = useState([]);
   const noticeContainerRef = useRef(null);

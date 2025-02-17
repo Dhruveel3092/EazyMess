@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify'
 
 function AddAccountant() {
     const navigate = useNavigate(); 
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
     const [values, setValues] = useState({
         username: "",
         email: "",

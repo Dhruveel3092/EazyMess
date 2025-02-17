@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddExpense = () => {
     const navigate = useNavigate();
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
     const [formData, setFormData] = useState({
         itemName: "",
         price: "",

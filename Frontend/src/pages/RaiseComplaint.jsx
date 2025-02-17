@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify'
 
 function RaiseComplaint() {
     const navigate = useNavigate();
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
     const [values, setValues] = useState({
         title: "",
         description: "",

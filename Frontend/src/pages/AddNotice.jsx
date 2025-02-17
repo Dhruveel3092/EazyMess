@@ -10,7 +10,7 @@ import { ToastContainer } from 'react-toastify'
 
 function AddNotice() {
     const navigate = useNavigate();
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
     const [values, setValues] = useState({
         title: "",
         description: "",

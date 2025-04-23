@@ -177,6 +177,7 @@ const StudentRegister = () => {
               useOneTap
               style={{ height: '50px' }}
               className="w-full bg-black text-white p-4 rounded-lg flex items-center justify-center hover:bg-[#0a138b]"
+              text="continue_with"
             />
 
             <p className="mt-4 text-center text-black text-sm">
